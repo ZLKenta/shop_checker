@@ -1,4 +1,4 @@
-# Shop Checker
+# Lance's Shop Checker
 
 A proof-of-concept Chrome extension that warns you when a shopping site looks dodgy. It needs no API keys.
 
@@ -45,7 +45,7 @@ The average uses only sites with 10 or more reviews, so three sites agreeing don
 
 ## Settings
 
-Open them from `chrome://extensions` → Shop Checker → **Details** → **Extension options**, or right-click the toolbar icon → **Options**. You can:
+Open them from `chrome://extensions` → Lance's Shop Checker → **Details** → **Extension options**, or right-click the toolbar icon → **Options**. You can:
 
 - Switch each review site on or off. All three start on; Sitejabber and Reviews.io are marked optional.
 - See the sites you've said not to check, and click **Check again** to remove one.
