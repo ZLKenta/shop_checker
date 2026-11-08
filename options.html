@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shop Checker settings</title>
+  <style>
+    body { font: 14px/1.5 system-ui, sans-serif; color: #1d1d1f; margin: 16px 20px; min-width: 380px; }
+    h1 { font-size: 18px; margin: 0 0 4px; }
+    h2 { font-size: 15px; margin: 20px 0 4px; }
+    p.hint { color: #555; margin: 0 0 10px; }
+    label.site { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; margin: 6px 0;
+                 border: 1px solid #d0d5dc; border-radius: 8px; cursor: pointer; }
+    label.site:hover { border-color: #b7791f; }
+    label.site input { margin-top: 3px; accent-color: #b7791f; }
+    label.site small { display: block; color: #555; }
+    .tag { font-size: 11px; color: #555; background: #eef1f5; border-radius: 4px; padding: 0 5px; margin-left: 6px; }
+    ul#allow { list-style: none; padding: 0; margin: 0; }
+    ul#allow li { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid #eee; }
+    button { font: inherit; color: #8a3a00; background: none; border: 1px solid #b7791f; border-radius: 6px; padding: 1px 10px; cursor: pointer; }
+    #saved { color: #2e7d4f; height: 1.5em; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Shop Checker settings</h1>
+  <p class="hint">Domain age and the signs on the page are always checked. Choose which review sites to look the shop up on as well.</p>
+
+  <h2>Review sites</h2>
+  <div id="sites"></div>
+
+  <h2>Sites you've said not to check</h2>
+  <p class="hint">Added with "Don't check this site again" on the banner.</p>
+  <ul id="allow"></ul>
+
+  <div id="saved" role="status"></div>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

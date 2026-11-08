@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Shop Checker",
+  "version": "0.2.0",
+  "description": "Warns you when a shopping site looks dodgy, using review sites (Trustpilot, Sitejabber, Reviews.io), domain age and signs on the page. No API keys needed.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Shop Checker: check this site now"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}
