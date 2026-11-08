@@ -76,6 +76,7 @@
                box-shadow: 0 6px 24px rgba(0,0,0,.18); width: min(440px, 90vw); }
         .head { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; }
         .head .domain { font-weight: 400; color: #555; }
+        .head .logo { width: 30px; height: 30px; flex-shrink: 0; margin: -4px 0 -4px -4px; }
         .close { margin-left: auto; border: none; background: none; font-size: 18px; cursor: pointer; color: #444; }
         ul { margin: 8px 0 0; padding: 0; list-style: none; }
         li { display: flex; gap: 8px; margin: 3px 0; }
@@ -87,11 +88,13 @@
         a, button.link { color: #8a3a00; background: none; border: none; padding: 0; font: inherit; cursor: pointer; text-decoration: underline; }
       </style>
       <div class="box" role="alert">
-        <div class="head">${c.icon} ${c.title} <span class="domain">${escapeHtml(result.domain || location.hostname)}</span>
+        <div class="head"><img class="logo" src="${chrome.runtime.getURL("icons/icon-48.png")}" alt="" title="Lance's Shop Checker">${c.icon} ${c.title} <span class="domain">${escapeHtml(result.domain || location.hostname)}</span>
           <button class="close" title="Close">&times;</button></div>
         ${reasons ? `<ul>${reasons}</ul>` : ""}
         ${result.level && result.level !== "wait" ? `<div class="foot">${siteLinks}<button class="link allow">Don't check this site again</button></div>` : ""}
       </div>`;
+    // If a site blocks the icon from loading, leave it out rather than show a broken image.
+    root.querySelector(".logo").addEventListener("error", (e) => e.target.remove());
     root.querySelector(".close").onclick = () => host.remove();
     root.querySelector(".allow")?.addEventListener("click", () => {
       chrome.runtime.sendMessage({ type: "allow", hostname: location.hostname });
